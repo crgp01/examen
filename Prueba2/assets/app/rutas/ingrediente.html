@@ -1,0 +1,22 @@
+<h1>Ingrediente</h1>
+<div class="row">
+    <div class="col-sm-4">
+        <h2>Agregar nuevo Ingrediente</h2>
+        <form ng-submit="agregarNuevoIngrediente(nuevoIngrediente)">
+
+            <div class="form-group">
+                <label for="idnombre">Nombre</label>
+                <input ng-model="nuevoIngrediente.nombre" type="text" class="form-control" id="idnombre" placeholder="Ingresa un Nombre">
+            </div>
+
+            <button class="btn btn-success">Agregar Ingrediente</button>
+        </form>
+    </div>
+</div>
+
+<div ng-repeat="variableIngrediente in ingredientes">
+    <div class="col-sm-4" ng-init="variableIngrediente.visible=false">
+        <h1>{{$index+1}} {{variableIngrediente.nombre}}  </h1>
+
+    </div>
+</div>

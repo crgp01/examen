@@ -1,0 +1,78 @@
+<h1>Pastel</h1>
+<div class="row">
+    <div class="col-sm-4">
+        <h2>Agregar nuevo Pastel</h2>
+        <form ng-submit="agregarNuevoPastel(nuevoPastel)">
+
+            <div class="form-group">
+                <label for="idnombre">Nombre</label>
+                <input ng-model="nuevoPastel.nombre" type="text" class="form-control" id="idnombre" placeholder="Ingresa un Nombre">
+            </div>
+            <div class="form-group">
+                <label for="idnombre">Tipo</label>
+                <!--<input ng-model="nuevoPastel.tipo" type="text" class="form-control" id="idnombre" placeholder="Ingresa un Tipo">-->
+
+                <select ng-model="nuevoPastel.tipo" type="text" class="form-control" id="idnombre" placeholder="Ingresa un Tipo">
+                    <option value="hojaldre">Hojaldre</option>
+                    <option value="azucarada">Azucarada</option>
+                    <option value="escaldadas">Escaldadas</option>
+                    <option value="reposteria">Reposteria</option>
+                </select>
+
+            </div>
+            <div class="form-group">
+                <label for="idnombre">Foto</label>
+                <input ng-model="nuevoPastel.foto" type="text" class="form-control" id="idnombre" placeholder="Ingresa una foto">
+            </div>
+            <div class="form-group">
+                <label for="idnombre">Preparación</label>
+                <input ng-model="nuevoPastel.preparacion" type="text" class="form-control" id="idnombre" placeholder="Ingresa tu descripción">
+            </div>
+
+            <button class="btn btn-success">Agregar Pastel</button>
+        </form>
+    </div>
+</div>
+
+<div ng-repeat="variablePastel in pasteles">
+    <div class="col-sm-4" ng-init="variablePastel.visible=false">
+        <h1>{{$index+1}} {{variablePastel.nombre}}  </h1>
+        <p>{{variablePastel.tipo}}</p>
+
+        <img ng-src="{{pasteles[$index].foto}}" alt="fotos" height="100" width="95" id="idnombre" placeholder="Actualiza tu imagen">
+        <button ng-click="variablePastel.visible=!variablePastel.visible" class="btn btn-success">Editarme</button>
+        <a href="#/{{variablePastel.id}}/ingrediente" class="btn btn-success">Nuevo ingrediente</a>
+        <br>
+        <form class="animated bounceIn" ng-show="variablePastel.visible" ng-submit="editarPastel(variablePastel, $index)">
+            <div class="form-group">
+                <label for="idnombre">Nombre</label>
+                <input ng-model="pasteles[$index].nombre" type="text" class="form-control" id="idnombre" placeholder="Actualiza tu Nombre">
+            </div>
+            <div class="form-group">
+                <label for="idnombre">Tipo</label>
+                <input ng-model="pasteles[$index].tipo" type="text" class="form-control" id="idnombre" placeholder="Actualiza tu Apellido">
+            </div>
+            <div class="form-group">
+                <label for="idnombre">Preparación</label>
+                <input ng-model="pasteles[$index].preparacion" type="text" class="form-control" id="idnombre" placeholder="Actualiza tu edad">
+            </div>
+            <div class="form-group">
+                <label for="idnombre">Foto</label>
+                <input ng-model="pasteles[$index].foto" type="text" class="form-control" id="idnombre" placeholder="Actualiza tu edad">
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <!--button ng-click="borrarEntrenador(variableEntrenador.id, $index)" class="btn btn-danger">Borrar</button-->
+        </form>
+        <br>
+
+    </div>
+
+</div>
+<div ng-repeat="variableIngrediente in ingredientes">
+    <div class="col-sm-4" ng-init="variableIngrediente.visible=false">
+        <h1>{{variableIngrediente.nombre}}  </h1>
+
+    </div>
+</div>
